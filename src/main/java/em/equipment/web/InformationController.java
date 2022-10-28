@@ -13,11 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Slf4j
-@CrossOrigin(allowedHeaders = "*", origins = "http://localhost:3000", exposedHeaders =
-        "Access-Control-Allow-Origin", methods = {
-        RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT,
-        RequestMethod.DELETE, RequestMethod.HEAD,
-        RequestMethod.OPTIONS, RequestMethod.PATCH, RequestMethod.TRACE })
 @RestController
 @RequestMapping("/api/equipment/information")
 public class InformationController {
