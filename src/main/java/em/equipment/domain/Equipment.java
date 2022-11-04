@@ -2,7 +2,10 @@ package em.equipment.domain;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Date;
 
 @Builder
@@ -11,8 +14,7 @@ import java.sql.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "information")
-public class Information {
+public class Equipment {
     @Id
     @Column(name = "id", nullable = false, length = 20)
     private String id;

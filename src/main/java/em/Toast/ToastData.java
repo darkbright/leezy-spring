@@ -1,6 +1,7 @@
-package em.equipment.web;
+package em.Toast;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 public class ToastData {

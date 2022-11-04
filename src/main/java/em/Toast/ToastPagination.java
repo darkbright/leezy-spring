@@ -1,4 +1,4 @@
-package em.equipment.web;
+package em.Toast;
 
 import lombok.Data;
 
