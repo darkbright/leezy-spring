@@ -31,6 +31,7 @@ public class EditorController {
     @PutMapping("/api/equipment/information")
     public ToastResponse putEquipments(@RequestBody ToastRequest<Equipment> request) {
         service.putEquipments(request.getUpdatedRows());
+        service.putEquipments(request.getCreatedRows());
 
         return new ToastResponse(true, new ToastData(null, new ToastPagination(0, 0)), "");
     }
@@ -39,6 +40,7 @@ public class EditorController {
     @PutMapping("/api/equipment/certificate")
     public ToastResponse putEquipmentCertificates(@RequestBody ToastRequest<EquipmentCertificate> request) {
         service.putEquipmentCertificates(request.getUpdatedRows());
+        service.putEquipmentCertificates(request.getCreatedRows());
 
         return new ToastResponse(true, new ToastData(null, new ToastPagination(0, 0)), "");
     }
@@ -47,6 +49,7 @@ public class EditorController {
     @PutMapping("/api/equipment/management")
     public ToastResponse putEquipmentManages(@RequestBody ToastRequest<EquipmentManage> request) {
         service.putEquipmentManages(request.getUpdatedRows());
+        service.putEquipmentManages(request.getCreatedRows());
 
         return new ToastResponse(true, new ToastData(null, new ToastPagination(0, 0)), "");
     }
@@ -55,6 +58,7 @@ public class EditorController {
     @PutMapping("/api/material/information")
     public ToastResponse putMaterials(@RequestBody ToastRequest<Material> request) {
         service.putMaterials(request.getUpdatedRows());
+        service.putMaterials(request.getCreatedRows());
 
         return new ToastResponse(true, new ToastData(null, new ToastPagination(0, 0)), "");
     }
@@ -63,6 +67,7 @@ public class EditorController {
     @PutMapping("/api/material/certificate")
     public ToastResponse putMaterialCertificates(@RequestBody ToastRequest<MaterialCertificate> request) {
         service.putMaterialCertificates(request.getUpdatedRows());
+        service.putMaterialCertificates(request.getCreatedRows());
 
         return new ToastResponse(true, new ToastData(null, new ToastPagination(0, 0)), "");
     }
@@ -71,6 +76,7 @@ public class EditorController {
     @PutMapping("/api/material/management")
     public ToastResponse putMaterialManages(@RequestBody ToastRequest<MaterialManage> request) {
         service.putMaterialManages(request.getUpdatedRows());
+        service.putMaterialManages(request.getCreatedRows());
 
         return new ToastResponse(true, new ToastData(null, new ToastPagination(0, 0)), "");
     }
@@ -79,6 +85,7 @@ public class EditorController {
     @PutMapping("/api/system/user")
     public ToastResponse putSystemUser(@RequestBody ToastRequest<MaterialManage> request) {
         service.putMaterialManages(request.getUpdatedRows());
+        service.putMaterialManages(request.getCreatedRows());
 
         return new ToastResponse(true, new ToastData(null, new ToastPagination(0, 0)), "");
     }
