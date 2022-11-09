@@ -1,11 +1,9 @@
 package em.equipment.application;
 
-import em.equipment.domain.*;
+import em.Toast.ToastRequest;
 import em.equipment.infrastructure.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Slf4j
 @Service
@@ -17,6 +15,7 @@ public class EditorService {
     private EquipmentManageRepository equipmentManageRepository;
     private MaterialManageRepository materialManageRepository;
     private SystemUserRepository systemUserRepository;
+    private EquipmentManufactureRepository equipmentManufactureRepository;
 
     public EditorService(
             EquipmentRepository equipmentRepository,
@@ -25,6 +24,7 @@ public class EditorService {
             MaterialCertificateRepository materialCertificateRepository,
             EquipmentManageRepository equipmentManageRepository,
             MaterialManageRepository materialManageRepository,
+            EquipmentManufactureRepository equipmentManufactureRepository,
             SystemUserRepository systemUserRepository
     ) {
         this.equipmentRepository = equipmentRepository;
@@ -33,49 +33,57 @@ public class EditorService {
         this.materialCertificateRepository = materialCertificateRepository;
         this.equipmentManageRepository = equipmentManageRepository;
         this.materialManageRepository = materialManageRepository;
+        this.equipmentManufactureRepository = equipmentManufactureRepository;
         this.systemUserRepository = systemUserRepository;
     }
 
-    public void putEquipments(List<Equipment> list) {
-        for (Equipment row: list) {
-            equipmentRepository.save(row);
-        }
+    public void modifyEquipments(ToastRequest data) {
+        equipmentRepository.saveAll(data.getCreatedRows());
+        equipmentRepository.saveAll(data.getUpdatedRows());
+        equipmentRepository.deleteAll(data.getDeletedRows());
     }
 
-    public void putMaterials(List<Material> list) {
-        for (Material row: list) {
-            materialRepository.save(row);
-        }
+    public void modifyMaterials(ToastRequest data) {
+        materialRepository.saveAll(data.getCreatedRows());
+        materialRepository.saveAll(data.getUpdatedRows());
+        materialRepository.deleteAll(data.getDeletedRows());
     }
 
-    public void putEquipmentCertificates(List<EquipmentCertificate> list) {
-        for (EquipmentCertificate row: list) {
-            equipmentCertificateRepository.save(row);
-        }
+    public void modifyEquipmentCertificates(ToastRequest data) {
+        equipmentCertificateRepository.saveAll(data.getCreatedRows());
+        equipmentCertificateRepository.saveAll(data.getUpdatedRows());
+        equipmentCertificateRepository.deleteAll(data.getDeletedRows());
     }
 
-    public void putMaterialCertificates(List<MaterialCertificate> list) {
-        for (MaterialCertificate row: list) {
-            materialCertificateRepository.save(row);
-        }
+    public void modifyMaterialCertificates(ToastRequest data) {
+        materialCertificateRepository.saveAll(data.getCreatedRows());
+        materialCertificateRepository.saveAll(data.getUpdatedRows());
+        materialCertificateRepository.deleteAll(data.getDeletedRows());
     }
 
-    public void putEquipmentManages(List<EquipmentManage> list) {
-        for (EquipmentManage row: list) {
-            equipmentManageRepository.save(row);
-        }
+    public void modifyEquipmentManages(ToastRequest data) {
+        equipmentManageRepository.saveAll(data.getCreatedRows());
+        equipmentManageRepository.saveAll(data.getUpdatedRows());
+        equipmentManageRepository.deleteAll(data.getDeletedRows());
     }
 
-    public void putMaterialManages(List<MaterialManage> list) {
-        for (MaterialManage row: list) {
-            materialManageRepository.save(row);
-        }
+
+    public void modifyEquipmentManufacture(ToastRequest data) {
+        equipmentManufactureRepository.saveAll(data.getCreatedRows());
+        equipmentManufactureRepository.saveAll(data.getUpdatedRows());
+        equipmentManufactureRepository.deleteAll(data.getDeletedRows());
     }
 
-    public void putSystemUser(List<SystemUser> list) {
-        for (SystemUser row: list) {
-            systemUserRepository.save(row);
-        }
+    public void modifyMaterialManages(ToastRequest data) {
+        materialManageRepository.saveAll(data.getCreatedRows());
+        materialManageRepository.saveAll(data.getUpdatedRows());
+        materialManageRepository.deleteAll(data.getDeletedRows());
+    }
+
+    public void modifySystemUser(ToastRequest data) {
+        systemUserRepository.saveAll(data.getCreatedRows());
+        systemUserRepository.saveAll(data.getUpdatedRows());
+        systemUserRepository.deleteAll(data.getDeletedRows());
     }
 
 }

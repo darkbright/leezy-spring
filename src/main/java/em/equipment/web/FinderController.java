@@ -1,9 +1,6 @@
 package em.equipment.web;
 
-import em.Toast.ToastData;
-import em.Toast.ToastPagination;
-import em.Toast.ToastRequest;
-import em.Toast.ToastResponse;
+import em.Toast.*;
 import em.equipment.application.FinderService;
 import em.equipment.domain.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,85 +22,90 @@ public class FinderController {
 
     @Operation(summary = "장비 목록조회 API", description = "장비 목록을 읽어온다")
     @GetMapping("/api/equipment/information")
-    public ResponseEntity<ToastResponse> getEquipments() {
+    public ResponseEntity<ToastTrueResponse> getEquipments(
+            @RequestParam Integer page
+//            @RequestParam Integer perPage
+    ) {
         List<Equipment> list = service.getEquipments();
 
-        ToastPagination pagination = new ToastPagination(1, list.size());
-        ToastData data = new ToastData(list, pagination);
-        ToastResponse response = new ToastResponse(true, data, "");
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return ResponseEntity.ok().body(new ToastTrueResponse(list, page));
     }
 
     @Operation(summary = "장비 증명서 목록조회 API", description = "장비 목록을 읽어온다")
     @GetMapping("/api/equipment/certificate")
-    public ResponseEntity<ToastResponse> getEquipmentCertificates() {
+    public ResponseEntity<ToastTrueResponse> getEquipmentCertificates(
+            @RequestParam Integer page
+//            @RequestParam Integer perPage
+    ) {
         List<EquipmentCertificate> list = service.getEquipmentCertificates();
 
-        ToastPagination pagination = new ToastPagination(1, list.size());
-        ToastData data = new ToastData(list, pagination);
-        ToastResponse response = new ToastResponse(true, data, "");
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return ResponseEntity.ok().body(new ToastTrueResponse(list, page));
     }
 
     @Operation(summary = "장비 관리기록부 목록조회 API", description = "장비 목록을 읽어온다")
     @GetMapping("/api/equipment/management")
-    public ResponseEntity<ToastResponse> getEquipmentManages() {
+    public ResponseEntity<ToastTrueResponse> getEquipmentManages(
+            @RequestParam Integer page
+//            @RequestParam Integer perPage
+    ) {
         List<EquipmentManage> list = service.getEquipmentManages();
 
-        ToastPagination pagination = new ToastPagination(1, list.size());
-        ToastData data = new ToastData(list, pagination);
-        ToastResponse response = new ToastResponse(true, data, "");
+        return ResponseEntity.ok().body(new ToastTrueResponse(list, page));
+    }
 
-        return new ResponseEntity<>(response, HttpStatus.OK);
+    @Operation(summary = "장비 제작 정보 목록조회 API", description = "장비 제작 정보를 읽어온다")
+    @GetMapping("/api/equipment/manufacture")
+    public ResponseEntity<ToastTrueResponse> getEquipmentManufacture(
+            @RequestParam Integer page
+//            @RequestParam Integer perPage
+    ) {
+        List<EquipmentManufacture> list = service.getEquipmentManufacture();
+
+        return ResponseEntity.ok().body(new ToastTrueResponse(list, page));
     }
 
     @Operation(summary = "자재 목록조회 API", description = "자재 목록을 읽어온다")
     @GetMapping("/api/material/information")
-    public ResponseEntity<ToastResponse> getMaterials() {
+    public ResponseEntity<ToastTrueResponse> getMaterials(
+            @RequestParam Integer page
+//            @RequestParam Integer perPage
+    ) {
         List<Material> list = service.getMaterials();
 
-        ToastPagination pagination = new ToastPagination(1, list.size());
-        ToastData data = new ToastData(list, pagination);
-        ToastResponse response = new ToastResponse(true, data, "");
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return ResponseEntity.ok().body(new ToastTrueResponse(list, page));
     }
 
     @Operation(summary = "자재 증명서 목록조회 API", description = "자재 목록을 읽어온다")
     @GetMapping("/api/material/certificate")
-    public ResponseEntity<ToastResponse> getMaterialCertificate() {
+    public ResponseEntity<ToastTrueResponse> getMaterialCertificate(
+            @RequestParam Integer page
+//            @RequestParam Integer perPage
+    ) {
+
         List<MaterialCertificate> list = service.getMaterialCertificates();
 
-        ToastPagination pagination = new ToastPagination(1, list.size());
-        ToastData data = new ToastData(list, pagination);
-        ToastResponse response = new ToastResponse(true, data, "");
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return ResponseEntity.ok().body(new ToastTrueResponse(list, page));
     }
 
     @Operation(summary = "자재 관리기록부 목록조회 API", description = "자재 목록을 읽어온다")
     @GetMapping("/api/material/management")
-    public ResponseEntity<ToastResponse> getMaterialManage() {
+    public ResponseEntity<ToastTrueResponse> getMaterialManage(
+            @RequestParam Integer page
+//            @RequestParam Integer perPage
+    ) {
         List<MaterialManage> list = service.getMaterialManages();
 
-        ToastPagination pagination = new ToastPagination(1, list.size());
-        ToastData data = new ToastData(list, pagination);
-        ToastResponse response = new ToastResponse(true, data, "");
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return ResponseEntity.ok().body(new ToastTrueResponse(list, page));
     }
 
     @Operation(summary = "시스템 사용자 수정 API", description = "시스템 사용자를 추가/수정/삭제한다 (Toast Grid)")
     @GetMapping("/api/system/user")
-    public ResponseEntity<ToastResponse> getSystemUser() {
+    public ResponseEntity<ToastTrueResponse> getSystemUser(
+            @RequestParam Integer page
+//            @RequestParam Integer perPage
+    ) {
         List<SystemUser> list = service.getSystemUser();
 
-        ToastPagination pagination = new ToastPagination(1, list.size());
-        ToastData data = new ToastData(list, pagination);
-        ToastResponse response = new ToastResponse(true, data, "");
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return ResponseEntity.ok().body(new ToastTrueResponse(list, page));
     }
 }

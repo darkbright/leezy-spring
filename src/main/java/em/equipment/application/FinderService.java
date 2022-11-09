@@ -16,6 +16,7 @@ public class FinderService {
     private MaterialCertificateRepository materialCertificateRepository;
     private EquipmentManageRepository equipmentManageRepository;
     private MaterialManageRepository materialManageRepository;
+    private EquipmentManufactureRepository equipmentManufactureRepository;
     private SystemUserRepository systemUserRepository;
 
     public FinderService(
@@ -25,6 +26,7 @@ public class FinderService {
             MaterialCertificateRepository materialCertificateRepository,
             EquipmentManageRepository equipmentManageRepository,
             MaterialManageRepository materialManageRepository,
+            EquipmentManufactureRepository equipmentManufactureRepository,
             SystemUserRepository systemUserRepository
     ) {
         this.equipmentRepository = equipmentRepository;
@@ -33,6 +35,7 @@ public class FinderService {
         this.materialCertificateRepository = materialCertificateRepository;
         this.equipmentManageRepository = equipmentManageRepository;
         this.materialManageRepository = materialManageRepository;
+        this.equipmentManufactureRepository = equipmentManufactureRepository;
         this.systemUserRepository = systemUserRepository;
     }
 
@@ -58,6 +61,10 @@ public class FinderService {
 
     public List<MaterialManage> getMaterialManages() {
         return materialManageRepository.findAll();
+    }
+
+    public List<EquipmentManufacture> getEquipmentManufacture() {
+        return equipmentManufactureRepository.findAll();
     }
 
     public List<SystemUser> getSystemUser() {
