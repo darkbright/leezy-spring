@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Date;
+import java.util.Date;
 
 @Builder
 @AllArgsConstructor
@@ -24,7 +24,8 @@ public class EquipmentCertificate {
 
     private String request;
 
-    private String date;
+    @Column(name = "equipment_date")
+    private Date date;
 
     private String personalID;
 
@@ -34,11 +35,11 @@ public class EquipmentCertificate {
 
     private String outgoingDate;
 
-    private Date outgoingAgency;
+    private String outgoingAgency;
 
-    private Date outgoingPersonalId;
+    private String outgoingPersonalId;
 
-    private Date outgoingConfirmation;
+    private String outgoingConfirmation;
 
     private String outgoingTotal;
 

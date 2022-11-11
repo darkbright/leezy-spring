@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Date;
+import java.util.Date;
 
 @Builder
 @AllArgsConstructor
@@ -24,7 +24,8 @@ public class EquipmentManage {
 
     private String type;
 
-    private String date;
+    @Column(name = "equipment_date")
+    private Date date;
 
     private String count;
 
@@ -34,11 +35,11 @@ public class EquipmentManage {
 
     private String materialCertifyId;
 
-    private Date receiveGiveCount;
+    private String receiveGiveCount;
 
-    private Date receiveGiveCertifyId;
+    private String receiveGiveCertifyId;
 
-    private Date receiveGiveAgency;
+    private String receiveGiveAgency;
 
     private String callbackDate;
 

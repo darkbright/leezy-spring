@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Date;
+import java.util.Date;
 
 @Builder
 @AllArgsConstructor
@@ -22,7 +22,8 @@ public class Material {
 
     private String request;
 
-    private String date;
+    @Column(name = "material_date")
+    private Date date;
 
     private String personalId;
 

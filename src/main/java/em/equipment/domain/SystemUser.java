@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Builder
 @AllArgsConstructor
@@ -22,7 +23,8 @@ public class SystemUser {
     private String personalAgency;
     private String department;
     private String rank;
-    private String date;
+    @Column(name = "material_date")
+    private Date date;
     private String startDate;
     private String endDate;
     private String dutyStatus;
@@ -33,7 +35,11 @@ public class SystemUser {
 
     private String phone;
     private String address;
+
+    @Column(name = "user_level")
     private String level;
+
+    @Column(name = "user_check")
     private String check;
     private String clearance;
     private String manufactoryId;

@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Date;
+import java.util.Date;
 
 @Builder
 @AllArgsConstructor
@@ -22,6 +22,7 @@ public class MaterialManage {
 
     private String name;
 
+    @Column(name = "description")
     private String desc;
 
     private String type;
@@ -38,9 +39,9 @@ public class MaterialManage {
 
     private Date giveDate;
 
-    private Date giveCount;
+    private String giveCount;
 
-    private Date receiveGiveCertiId;
+    private String receiveGiveCertiId;
 
     private String giveAgency;
 
@@ -58,8 +59,10 @@ public class MaterialManage {
 
     private String materialChangeCertiId;
 
+    @Column(name = "user_check")
     private String check;
 
+    @Column(name = "material_group")
     private String group;
 
     private String detail;
